@@ -65,12 +65,14 @@ class Board extends GameObject {
 	}
 }
 
+
+
 let board1 = new Board(
-	{x: 0,y: 30},  {width: 100,height: 15},
+	{x: 0,y: 100},  {width: 100,height: 15},
 	".b1"  
 )
 let board2 = new Board(
-	{x: 0,y: 455},  {width: 100,height: 15},
+	{x: 0,y: 400},  {width: 100,height: 15},
 	".b2"  
 )
 
@@ -89,6 +91,7 @@ class Game {
 	startGame() {
 		let time = 3;
 		let game = this;
+		$('.info img').hide();
 		$("button").hide();
 		ball.init();
 		$(".infoText").text("Ready");
@@ -132,6 +135,8 @@ class Game {
 			game.collideEvent();
 
 			$('.grade').text(game.grade);
+			$('.b1').addClass('img1');
+			$('.b2').addClass('img2');
 
 			if(ball.position.y <= 0) game.endGame('玩家獲勝');
 			if(ball.position.y >= 500) game.endGame('電腦獲勝');
@@ -151,22 +156,14 @@ class Game {
 	endGame(msg) {
 		clearInterval(this.timer);
 		ball.position = { x:250, y:250 };
+		$('.b1').removeClass('img1');
+		$('.b2').removeClass('img2');
+		$('.info img').show();
 		$(".info").show();
 		$("button").show();
 		$('.infoText').html(msg + '<br> 分數: ' + this.grade);
 	}
 }
-
-
-//開始遊戲倒數
-
-//設置鍵盤控制
-
-//主要遊戲的迴圈
-
-//遊戲結束
-
-//建立遊戲物件
 
 let game = new Game()
 

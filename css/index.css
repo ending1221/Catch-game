@@ -24,15 +24,42 @@ html, body {
   width: 500px;
   height: 500px;
   position: relative;
-  background-color: #1e2021;
+  background-image: url(/img/bg.png);
+  background-size: cover;
 }
 
-.game .board {
-  background-color: #c5b2e6;
+.game .board.b2 {
+  background-color: #311F23;
+  border-radius: 5px;
+}
+
+.game .img1::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/img/02.png);
+}
+
+.game .img2::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/img/01.png);
 }
 
 .game .ball {
-  background-color: whitesmoke;
+  background-color: #ffe797;
+  border-radius: 50%;
 }
 
 .info {
@@ -55,8 +82,8 @@ html, body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #1e2021;
-  color: #c5b2e6;
+  background-color: #519aa7;
+  color: whitesmoke;
 }
 
 .info button {
@@ -67,10 +94,12 @@ html, body {
   background-color: #fff;
   -webkit-transition: 0.5;
   transition: 0.5;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .info button:hover {
-  background-color: #d4c4ee;
+  background-color: #ffe797;
 }
 
 .info .infoText {

@@ -1,6 +1,7 @@
 $colorPurple: rgb(197, 178, 230);
-$colorYellow: #FFB637;
+$colorYellow: #ffe797;
 $colorBlack: rgb(30, 32, 33);
+$colorBw: #311F23;
 
 html,body {
     display: flex;
@@ -22,12 +23,38 @@ html,body {
     width: 500px;
     height: 500px;
     position: relative;
-    background-color: $colorBlack;
-    .board {
-        background-color: $colorPurple;
+    background-image: url(/img/bg.png);
+    background-size: cover;
+    // background-color: $colorBlack;
+    .board.b2 {
+        background-color: $colorBw;
+        border-radius: 5px;
+    }
+    .img1::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        left: 0px;
+        width: 100px;
+        height: 100px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url(/img/02.png);
+    }
+    .img2::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100px;
+        height: 100px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url(/img/01.png);
     }
     .ball {
-        background-color: whitesmoke;
+        background-color: $colorYellow;
+        border-radius: 50%;
     }
 }      
     
@@ -42,8 +69,8 @@ html,body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: $colorBlack;
-    color: $colorPurple;
+    background-color: rgb(81, 154, 167);
+    color: whitesmoke;
     button {
         font-weight: 600;
         border: none;
@@ -51,8 +78,9 @@ html,body {
         border-radius: 5px;
         background-color: #fff;
         transition: 0.5;
+        box-shadow: none;
         &:hover {
-            background-color: rgb(212, 196, 238);
+            background-color: $colorYellow;
         }
     }
     .infoText {
