@@ -18,8 +18,8 @@ class GameObject {
 	//偵測遊戲物件碰撞
 	collide(otherObject) {
 		let pos = otherObject.position;
-		let inXrange = pos.x >= this.position.x && pos.x <= this.position.x + this.size.width
-		let inYrange =  pos.y >= this.position.y && pos.y <= this.position.y + this.size.height
+		let inXrange = pos.x >= this.position.x && pos.x <= this.position.x + this.size.width;
+		let inYrange =  pos.y >= this.position.y && pos.y <= this.position.y + this.size.height;
 		return inXrange && inYrange
 	}
 }
@@ -72,7 +72,7 @@ let board1 = new Board(
 	".b1"  
 )
 let board2 = new Board(
-	{x: 0,y: 400},  {width: 100,height: 15},
+	{x: 0,y: 400},  {width: 100,height: 100},
 	".b2"  
 )
 
@@ -96,10 +96,14 @@ class Game {
 		ball.init();
 		$(".infoText").text("Ready");
 		this.timer = setInterval(function(){
-			$(".infoText").text(time);
+			$(".infoText").html(time + '<br> 請使用 ⇦ ⇨ 控制方向');
 			if (time <= 0){
 				$(".info").hide();
 				clearInterval( game.timer );
+				$('.b1').addClass('img1');
+				$('.b2').addClass('img2');
+				$('.board').removeClass('noBorder');
+				$('.ball').removeClass('noBorder');
 				game.startMain();
 			}
 			time--
@@ -134,9 +138,7 @@ class Game {
 			
 			game.collideEvent();
 
-			$('.grade').text(game.grade);
-			$('.b1').addClass('img1');
-			$('.b2').addClass('img2');
+			$('.grade').text('分數: ' + game.grade);
 
 			if(ball.position.y <= 0) game.endGame('玩家獲勝');
 			if(ball.position.y >= 500) game.endGame('電腦獲勝');

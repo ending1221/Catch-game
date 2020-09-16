@@ -21,16 +21,13 @@ html, body {
 
 .game {
   border-radius: 15px;
+  border: #311F23 5px solid;
   width: 500px;
   height: 500px;
   position: relative;
   background-image: url(/img/bg.png);
   background-size: cover;
-}
-
-.game .board.b2 {
-  background-color: #311F23;
-  border-radius: 5px;
+  overflow: hidden;
 }
 
 .game .img1::before {
@@ -48,7 +45,7 @@ html, body {
 .game .img2::before {
   content: "";
   position: absolute;
-  top: 0px;
+  top: 5px;
   left: 0px;
   width: 100px;
   height: 100px;
@@ -60,6 +57,7 @@ html, body {
 .game .ball {
   background-color: #ffe797;
   border-radius: 50%;
+  border: #311F23 4px solid;
 }
 
 .info {
@@ -88,7 +86,7 @@ html, body {
 
 .info button {
   font-weight: 600;
-  border: none;
+  border: #311F23 4px solid;
   padding: 10px 20px;
   border-radius: 5px;
   background-color: #fff;
@@ -99,7 +97,7 @@ html, body {
 }
 
 .info button:hover {
-  background-color: #ffe797;
+  background-color: #FFBCBC;
 }
 
 .info .infoText {
@@ -108,5 +106,9 @@ html, body {
 
 .grade {
   padding: 20px;
+}
+
+.noBorder {
+  border: none !important;
 }
 /*# sourceMappingURL=index.css.map */

@@ -2,6 +2,7 @@ $colorPurple: rgb(197, 178, 230);
 $colorYellow: #ffe797;
 $colorBlack: rgb(30, 32, 33);
 $colorBw: #311F23;
+$colorPink: #FFBCBC;
 
 html,body {
     display: flex;
@@ -20,15 +21,18 @@ html,body {
 
 .game {
     border-radius: 15px;
+    border: $colorBw 5px solid;
     width: 500px;
     height: 500px;
     position: relative;
     background-image: url(/img/bg.png);
     background-size: cover;
+    overflow: hidden;
     // background-color: $colorBlack;
     .board.b2 {
-        background-color: $colorBw;
-        border-radius: 5px;
+        // border: $colorBw 4px solid;
+        // border-radius: 5px;
+        // background-color: $colorPink;
     }
     .img1::before {
         content: "";
@@ -44,7 +48,7 @@ html,body {
     .img2::before {
         content: "";
         position: absolute;
-        top: 0px;
+        top: 5px;
         left: 0px;
         width: 100px;
         height: 100px;
@@ -55,6 +59,7 @@ html,body {
     .ball {
         background-color: $colorYellow;
         border-radius: 50%;
+        border: $colorBw 4px solid;
     }
 }      
     
@@ -73,14 +78,14 @@ html,body {
     color: whitesmoke;
     button {
         font-weight: 600;
-        border: none;
+        border: $colorBw 4px solid;
         padding: 10px 20px;
         border-radius: 5px;
         background-color: #fff;
         transition: 0.5;
         box-shadow: none;
         &:hover {
-            background-color: $colorYellow;
+            background-color: $colorPink;
         }
     }
     .infoText {
@@ -89,4 +94,8 @@ html,body {
 }  
 .grade {
     padding: 20px;
+}
+
+.noBorder {
+    border: none !important;
 }
