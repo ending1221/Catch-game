@@ -8,26 +8,31 @@ html, body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0;
   width: 100%;
   height: 100%;
-  background-color: #222;
+  background-color: #37353a;
   color: white;
 }
 
+* {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
 .game {
-  border: solid 5px rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
   width: 500px;
   height: 500px;
   position: relative;
-  background-color: #222;
+  background-color: #1e2021;
 }
 
 .game .board {
-  background-color: #FF644E;
+  background-color: #c5b2e6;
 }
 
 .game .ball {
-  background-color: #fff;
+  background-color: whitesmoke;
 }
 
 .info {
@@ -36,6 +41,7 @@ html, body {
   position: absolute;
   left: 0;
   top: 0;
+  border-radius: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,16 +55,29 @@ html, body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #222;
-  color: white;
+  background-color: #1e2021;
+  color: #c5b2e6;
 }
 
 .info button {
+  font-weight: 600;
   border: none;
   padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  -webkit-transition: 0.5;
+  transition: 0.5;
+}
+
+.info button:hover {
+  background-color: #d4c4ee;
+}
+
+.info .infoText {
+  text-align: center;
 }
 
 .grade {
-  padding: 10px;
+  padding: 20px;
 }
 /*# sourceMappingURL=index.css.map */

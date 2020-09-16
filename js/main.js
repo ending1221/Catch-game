@@ -122,6 +122,7 @@ class Game {
 		}
 		if(board2.collide(ball)) {
 			ball.velocity.y = - Math.abs(ball.velocity.y);
+			this.grade += 100;
 		}
 	}
 	startMain() {
@@ -129,7 +130,9 @@ class Game {
 		this.timer = setInterval(function() {
 			
 			game.collideEvent();
-			
+
+			$('.grade').text(game.grade);
+
 			if(ball.position.y <= 0) game.endGame('玩家獲勝');
 			if(ball.position.y >= 500) game.endGame('電腦獲勝');
 
@@ -142,11 +145,15 @@ class Game {
 			ball.update();
 			board1.update();
 			board2.update();
+			
 		}, 30)
 	} 
 	endGame(msg) {
 		clearInterval(this.timer);
-		$('.infoText').text(msg);
+		ball.position = { x:250, y:250 };
+		$(".info").show();
+		$("button").show();
+		$('.infoText').html(msg + '<br> 分數: ' + this.grade);
 	}
 }
 
