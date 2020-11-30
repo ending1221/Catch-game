@@ -17,6 +17,13 @@ html, body {
 
 * {
   font-family: 'Noto Sans TC', sans-serif;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+          user-select: none;
 }
 
 .game {
@@ -28,6 +35,24 @@ html, body {
   background-image: url(../img/bg.png);
   background-size: cover;
   overflow: hidden;
+}
+
+.game #arrow {
+  width: 500px;
+  height: 500px;
+}
+
+.game .left {
+  display: inline-block;
+  width: 49%;
+  height: 100%;
+}
+
+.game .right {
+  display: inline-block;
+  width: 49%;
+  height: 100%;
+  float: right;
 }
 
 .game .img1::before {

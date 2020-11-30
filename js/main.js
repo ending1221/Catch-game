@@ -96,7 +96,7 @@ class Game {
 		ball.init();
 		$(".infoText").text("Ready");
 		this.timer = setInterval(function(){
-			$(".infoText").html(time + '<br> 請使用 ⇦ ⇨ 控制方向');
+			$(".infoText").html(time + '<br> 請使用 ⇦ ⇨ 或長按背景兩側控制方向');
 			if (time <= 0){
 				$(".info").hide();
 				clearInterval( game.timer );
@@ -111,11 +111,19 @@ class Game {
 	}
 	initControl() {
 		let game = this
+		$('#arrow').off('touchstart touchend');
 		$(window).keydown(function(evt){
-			game.control[evt.key] = true
+			game.control[evt.key] = true;
 		})
 		$(window).keyup(function(evt){
-			game.control[evt.key] = false
+			game.control[evt.key] = false;
+		})
+
+		$('#arrow').on('touchstart touchend', function(e){
+			const type = e.type === 'touchstart' ? true : false;
+			const arrow = e.target.className === 'left' ? 'ArrowLeft' : 'ArrowRight';
+
+			game.control[arrow] = type
 		})
 	}
 	collideEvent() {
