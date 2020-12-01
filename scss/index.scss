@@ -26,6 +26,14 @@ html,body {
     user-select: none;
 }
 
+@media(max-width: 500px) {
+    .game {
+        border-radius: 0 !important; 
+        // width: 100vw !important;
+        border: none !important;
+    }
+}
+
 .game {
     border-radius: 15px;
     border: $colorBw 5px solid;
@@ -36,8 +44,8 @@ html,body {
     background-size: cover;
     overflow: hidden;
     #arrow {
-        width: 500px;
-        height: 500px;
+        width: 100%;
+        height: 100%;
     }
 
     .left {
@@ -108,6 +116,7 @@ html,body {
     }
     .infoText {
         text-align: center;
+        max-width: 70vw;
     }
 }  
 .grade {

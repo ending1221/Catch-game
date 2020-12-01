@@ -1,3 +1,8 @@
+
+const $game = $('.game');
+const gameWidth = $game.width();
+const gameHeight = $game.height();
+
 //-------[類別] 遊戲物件
 
 class GameObject {
@@ -44,8 +49,8 @@ class Ball extends GameObject {
 		this.position.x += this.velocity.x;
 		this.position.y += this.velocity.y;
 		this.updateCss();
-		if (this.position.x < 0 || this.position.x > 500) this.velocity.x = -this.velocity.x;
-		if (this.position.y < 0 || this.position.y > 500) this.velocity.y = -this.velocity.y;
+		if (this.position.x < 0 || this.position.x > gameWidth) this.velocity.x = -this.velocity.x;
+		if (this.position.y < 0 || this.position.y > gameHeight) this.velocity.y = -this.velocity.y;
 	}
 }
 let ball = new Ball({}, {}, '.ball')
@@ -60,7 +65,7 @@ class Board extends GameObject {
 	//檢查板子是否超出邊界與更新
 	update() {
 		if (this.position.x < 0) this.position.x = 0;
-		if (this.position.x + this.size.width > 500) this.position.x = 500 - this.size.width;
+		if (this.position.x + this.size.width > gameWidth) this.position.x = gameWidth - this.size.width;
 		this.updateCss();
 	}
 }
@@ -72,7 +77,7 @@ let board1 = new Board(
 	".b1"  
 )
 let board2 = new Board(
-	{x: 0,y: 400},  {width: 100,height: 100},
+	{x: 0,y: 400},  {width: 100,height: 80},
 	".b2"  
 )
 
@@ -92,13 +97,14 @@ class Game {
 		let time = 3;
 		let game = this;
 		$('.info img').hide();
-		$("button").hide();
+		$('button').hide();
 		ball.init();
-		$(".infoText").text("Ready");
+		$('.infoText').text('Ready');
+		this.grade = 0;
 		this.timer = setInterval(function(){
-			$(".infoText").html(time + '<br> 請使用 ⇦ ⇨ 或長按背景兩側控制方向');
+			$('.infoText').html(time + '<br> 請使用 ⇦ ⇨ 或長按背景兩側控制方向');
 			if (time <= 0){
-				$(".info").hide();
+				$('.info').hide();
 				clearInterval( game.timer );
 				$('.b1').addClass('img1');
 				$('.b2').addClass('img2');
@@ -147,9 +153,8 @@ class Game {
 			game.collideEvent();
 
 			$('.grade').text('分數: ' + game.grade);
-
 			if(ball.position.y <= 0) game.endGame('玩家獲勝');
-			if(ball.position.y >= 500) game.endGame('電腦獲勝');
+			if(ball.position.y >= gameHeight) game.endGame('電腦獲勝');
 
 			if (game.control["ArrowLeft"]) board2.position.x -= 8 ;
 			if (game.control["ArrowRight"]) board2.position.x += 8;
